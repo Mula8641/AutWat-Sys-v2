@@ -1,0 +1,7 @@
+t=  20.0s  dry              moisture= 5%  idle -> emergency  pump=1
+t=  25.0s  recovered        moisture=35%  emergency -> idle  pump=0
+t=  30.0s  flooded          moisture=60%  idle -> lockout  pump=0
+t=  33.0s  drained          moisture=25%  lockout -> idle  pump=0
+t=  63.0s  drained          moisture=25%  idle -> scheduled  pump=1
+t=  73.0s  stuck sensor low moisture= 5%  scheduled -> emergency  pump=1
+t= 133.0s  stuck sensor low moisture= 5%  emergency -> fault  pump=0
