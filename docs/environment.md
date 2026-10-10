@@ -26,6 +26,8 @@ Only things actually run are listed as verified. Everything else says pending.
 - Windows `python -m platformio` (Python 3.14) failed to install the espressif32 platform (`HTTPClientError`, while curl reached the registry). Native tests and the firmware build were run from WSL Ubuntu 24.04 (PlatformIO in a venv). CI uses Python 3.12.
 - Building straight from `/mnt/d` took about 10 minutes; building from a copy on the WSL filesystem took 24 s. Use the WSL filesystem.
 
+- **BLE in Wokwi: not simulated.** With the real BLE stack the ESP32 reset in Wokwi right after boot (task watchdog, `btController` starving IDLE0). `esp32dev` (used by Wokwi) now builds with `-DAUTWAT_NO_BLE` (stub, logs "[ble] disabled"). `esp32dev_ble` builds the real NimBLE code and is compiled in CI. BLE is therefore "builds in CI, hardware pending". Flash: 60.0 % without BLE, 80.9 % with BLE.
+
 ## Test status
 
 - `pio test -e native`: 88 test cases, 88 passed (10 suites).

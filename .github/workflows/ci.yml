@@ -19,4 +19,4 @@ jobs:
       - name: Native unit tests
         run: pio test -e native
       - name: Build firmware
-        run: pio run -e esp32dev
+        run: pio run -e esp32dev -e esp32dev_ble

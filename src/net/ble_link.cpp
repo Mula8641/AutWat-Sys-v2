@@ -1,5 +1,6 @@
 #include "ble_link.h"
 #include <Arduino.h>
+#ifndef AUTWAT_NO_BLE
 #include <NimBLEDevice.h>
 #include "autwat_config.h"
 
@@ -73,3 +74,12 @@ Command bleLinkTakeCommand() {
     pending = Command::None;
     return taken;
 }
+
+#else  // AUTWAT_NO_BLE: simulator build, no BT controller
+
+void bleLinkBegin() { Serial.println("[ble] disabled in this build (AUTWAT_NO_BLE)"); }
+bool bleLinkIsConnected() { return false; }
+void bleLinkPublish(const uint8_t[autwat::kStatusBytes]) {}
+autwat::Command bleLinkTakeCommand() { return autwat::Command::None; }
+
+#endif
