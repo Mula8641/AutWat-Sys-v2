@@ -47,7 +47,9 @@ See [docs/state_machine.md](docs/state_machine.md) (Mermaid diagram and the 15 r
 
 ## Wiring
 
-See [docs/wiring.md](docs/wiring.md). The build is simulated for now; the wiring image is pending.
+See [docs/wiring.md](docs/wiring.md). The build is simulated for now.
+
+![Wokwi circuit](docs/img/wiring.png)
 
 ## Run the tests
 

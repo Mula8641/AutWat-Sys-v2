@@ -1,6 +1,10 @@
 # Wiring
 
-The build is simulated for now. The potentiometer stands in for a soil moisture probe, the LED labelled PUMP stands in for the pump, and the DHT22 is a Wokwi part. `diagram.json` has not yet been opened in Wokwi, so the wiring image (`docs/img/wiring.png`) is **pending**.
+The build is simulated for now. The potentiometer stands in for a soil moisture probe, the LED labelled PUMP stands in for the pump, and the DHT22 is a Wokwi part. The circuit below is the Wokwi simulation of `diagram.json`.
+
+![Wokwi circuit](img/wiring.png)
+
+LCD states captured from the simulator: [plant selection](img/lcd_plant_select.png), [pump calibration](img/lcd_calibrating.png), [dry emergency](img/lcd_emergency.png), [idle](img/lcd_idle.png), [too wet lockout](img/lcd_lockout.png).
 
 | Function | ESP32 GPIO | Notes |
 |---|---|---|
