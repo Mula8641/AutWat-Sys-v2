@@ -15,8 +15,13 @@ constexpr uint8_t kPinLcdD5 = 19;
 constexpr uint8_t kPinLcdD6 = 21;
 constexpr uint8_t kPinLcdD7 = 22;
 
-// Real SRD relay modules are low level trigger; reconfirm against the Wokwi relay (task 3.2).
+// Real SRD relay modules are low level trigger. The Wokwi relay is active high (observed in task 3.2),
+// so the simulator build defines AUTWAT_RELAY_ACTIVE_HIGH.
+#ifdef AUTWAT_RELAY_ACTIVE_HIGH
+constexpr bool kRelayActiveLow = false;
+#else
 constexpr bool kRelayActiveLow = true;
+#endif
 
 constexpr uint16_t kRawDry = 0;
 constexpr uint16_t kRawWet = 4095;

@@ -28,6 +28,9 @@ Only things actually run are listed as verified. Everything else says pending.
 
 - **BLE in Wokwi: not simulated.** With the real BLE stack the ESP32 reset in Wokwi right after boot (task watchdog, `btController` starving IDLE0). `esp32dev` (used by Wokwi) now builds with `-DAUTWAT_NO_BLE` (stub, logs "[ble] disabled"). `esp32dev_ble` builds the real NimBLE code and is compiled in CI. BLE is therefore "builds in CI, hardware pending". Flash: 60.0 % without BLE, 80.9 % with BLE.
 
+- **Relay level in Wokwi (task 3.2): active high.** First run showed the PUMP LED lit while the pump was off with `kRelayActiveLow = true`. The simulator build now defines `AUTWAT_RELAY_ACTIVE_HIGH`; the default (hardware) setting stays active low, matching the report's SRD module, and must be confirmed on the real board.
+- **LCD bug found in simulation:** lines shorter than 20 characters left stale characters ("AloeVeraing pump..."). `displayShow` now pads every line to 20.
+
 ## Test status
 
 - `pio test -e native`: 88 test cases, 88 passed (10 suites).
