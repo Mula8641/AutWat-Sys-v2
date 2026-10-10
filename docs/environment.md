@@ -38,4 +38,19 @@ Only things actually run are listed as verified. Everything else says pending.
 
 ## Simulation checklist (task 3.3)
 
-Not run: Wokwi has not been started. All ten items are pending.
+Run in Wokwi (VS Code extension) by the author on the firmware from commit 4938efb; the author reported all ten passing. No screenshots or recording are stored yet.
+
+| # | Check | Result |
+|---|---|---|
+| 1 | Splash, then plant selection | pass |
+| 2 | Short press cycles the three plants | pass |
+| 3 | Long press confirms, PUMP LED runs 5 s | pass |
+| 4 | Pot near 5 %: pump on, fast beeping, emergency text | pass |
+| 5 | Above normal high: pump off, beeping stops | pass |
+| 6 | Above critical high: pump off, fast beeping, lockout text | pass |
+| 7 | Cactus at 25 % skips the run; AloeVera at 25 % runs on schedule | pass |
+| 8 | Short press starts and stops a run | pass |
+| 9 | 5 % for over 60 s: FAULT, pump off until a button press | pass |
+| 10 | DHT22 changes update the LCD | pass |
+
+Not simulated: BLE (stubbed), and whether the HTTP server is reachable from the PC (not tested; WiFi connected inside Wokwi).

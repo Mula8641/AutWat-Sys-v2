@@ -4,7 +4,7 @@ ESP32 automatic plant watering controller in C++ (PlatformIO): per-plant moistur
 
 ![CI](https://github.com/Mula8641/AutWat-Sys/actions/workflows/ci.yml/badge.svg)
 
-Demo GIF: pending (needs a Wokwi run).
+Demo GIF: pending.
 
 ## Project background and my contribution
 
@@ -23,16 +23,16 @@ AutWat started as a five person M.Sc. Embedded Systems Design course project at 
 
 | Feature | Unit tested | Simulated | Hardware |
 |---|---|---|---|
-| Soil moisture input with calibration constants | [moisture_scale tests](test/test_moisture_scale/test_main.cpp) | pending | pending |
-| Humidity sensor (DHT22) | [JSON](test/test_status_json/test_main.cpp) and [BLE codec](test/test_status_codec/test_main.cpp) tests | pending | pending |
-| Pump output with safety cutoff | [controller tests](test/test_watering_controller/test_main.cpp) | [scripted controller run](docs/img/scripted_run.txt) (PC program, not Wokwi) | pending |
-| 3 day cycle with per-plant dose | [controller](test/test_watering_controller/test_main.cpp) and [dose](test/test_dose_calculator/test_main.cpp) tests | [scripted controller run](docs/img/scripted_run.txt) | pending |
+| Soil moisture input with calibration constants | [moisture_scale tests](test/test_moisture_scale/test_main.cpp) | [Wokwi checks](docs/environment.md) | pending |
+| Humidity sensor (DHT22) | [JSON](test/test_status_json/test_main.cpp) and [BLE codec](test/test_status_codec/test_main.cpp) tests | [Wokwi check 10](docs/environment.md) | pending |
+| Pump output with safety cutoff | [controller tests](test/test_watering_controller/test_main.cpp) | [Wokwi checks](docs/environment.md), [scripted run](docs/img/scripted_run.txt) | pending |
+| 3 day cycle with per-plant dose | [controller](test/test_watering_controller/test_main.cpp) and [dose](test/test_dose_calculator/test_main.cpp) tests | [Wokwi checks](docs/environment.md), [scripted run](docs/img/scripted_run.txt) | pending |
 | WiFi status endpoint | [JSON tests](test/test_status_json/test_main.cpp) | pending | pending |
 | BLE status and command | [codec tests](test/test_status_codec/test_main.cpp); builds in CI | pending | pending |
-| Plant health and overwatering lockout | [controller tests](test/test_watering_controller/test_main.cpp) | [scripted controller run](docs/img/scripted_run.txt) | pending |
-| Manual override (button, HTTP, BLE) | [command](test/test_command/test_main.cpp) and [button](test/test_button_decoder/test_main.cpp) tests | pending | pending |
+| Plant health and overwatering lockout | [controller tests](test/test_watering_controller/test_main.cpp) | [Wokwi checks](docs/environment.md), [scripted run](docs/img/scripted_run.txt) | pending |
+| Manual override (button, HTTP, BLE) | [command](test/test_command/test_main.cpp) and [button](test/test_button_decoder/test_main.cpp) tests | [Wokwi check 8](docs/environment.md) (button only) | pending |
 
-Nothing has been run on real hardware. The Wokwi simulation has not been run yet; the HTTP server and BLE code build but were never exercised.
+Nothing has been run on real hardware. The ten Wokwi behaviour checks passed (results in [docs/environment.md](docs/environment.md), no recording stored yet). The HTTP server was not reached from outside the simulator, and BLE is not simulated (Wokwi cannot emulate it); both build but were never exercised.
 
 ## Architecture
 
@@ -61,7 +61,7 @@ pio test -e native
 
 1. `cp include/secrets.h.example include/secrets.h`
 2. `pio run -e esp32dev`
-3. Open the folder in VS Code with the Wokwi extension and start the simulation (`wokwi.toml` and `diagram.json` are included but untested).
+3. Open the folder in VS Code with the Wokwi extension and start the simulation (`wokwi.toml` and `diagram.json` are included; the simulator build has BLE stubbed out).
 
 ## Remote API
 
