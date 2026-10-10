@@ -2,9 +2,9 @@
 
 ESP32 automatic plant watering controller in C++ (PlatformIO): per-plant moisture profiles, unit tested control logic, Wokwi simulation setup, WiFi and BLE status with manual override.
 
-![CI](https://github.com/Mula8641/AutWat-Sys/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Mula8641/AutWat-Sys-v2/actions/workflows/ci.yml/badge.svg)
 
-Demo GIF: pending.
+![Demo](docs/img/demo.gif)
 
 ## Project background and my contribution
 
